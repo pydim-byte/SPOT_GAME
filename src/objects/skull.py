@@ -5,6 +5,7 @@ from ..globals import *
 class Skull(pygame.sprite.Sprite):
     def __init__(self,pos,images):
         super().__init__()
+        self.type = 'skull'
         self.images = images
         self.image = self.images[0]
         self.rect = self.image.get_rect(topleft = pos)

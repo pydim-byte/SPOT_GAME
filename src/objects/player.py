@@ -5,6 +5,7 @@ from ..globals import *
 class Player(pygame.sprite.Sprite):
     def __init__(self,pos,images):
         super().__init__()
+        self.type = 'player'
         self.images = images
         self.image = self.images[0]
         self.rect = self.image.get_rect(topleft = pos)
@@ -12,20 +13,17 @@ class Player(pygame.sprite.Sprite):
         self.prev_pos = self.pos.copy()
         self.direction = pygame.Vector2(0,0)
         self.movement_direction = pygame.Vector2(0,0)
-        self.speed = 2
+        self.vel = pygame.Vector2(0,0)
 
     def set_direction(self,direction):
         self.movement_direction.xy = direction.xy
 
-    def move_and_colide(self):
-        self.prev_pos = self.pos.copy()
+    def calculate_velocity(self):
         self.direction.xy = self.movement_direction.xy
-        self.rect.topleft += self.direction * self.speed
-        self.rect.clamp_ip(pygame.Rect(0,0,SCREEN_WIDTH,SCREEN_HEIGHT))
-        self.pos.xy = self.rect.topleft
+        self.vel.xy = self.direction.xy * PLAYER_MOVEMENT_SPEED
 
     def fixed_update(self):
-        self.move_and_colide()
+        self.prev_pos.xy = self.pos.xy
 
     def update(self,dt):
         pass
