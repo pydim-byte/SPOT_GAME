@@ -23,7 +23,7 @@ class Game:
         self.physic_manager.fixed_update()
 
     def update(self,dt):
-        pass
+        self.tilemap.all_sprites.update(dt)
 
     def draw(self,alpha):
         self.tilemap.all_sprites.draw(self.screen,alpha)
@@ -37,7 +37,6 @@ class Game:
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     sys.exit()
-
 
             dt = self.clock.tick(FPS) / 1000
             dt = min(dt,0.1)

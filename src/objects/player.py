@@ -9,6 +9,9 @@ class Player(pygame.sprite.Sprite):
         self.images = images
         self.image = self.images[0]
         self.rect = self.image.get_rect(topleft = pos)
+
+        self.hp = 3
+
         self.pos = pos
         self.prev_pos = self.pos.copy()
         self.direction = pygame.Vector2(0,0)

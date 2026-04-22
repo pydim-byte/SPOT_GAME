@@ -11,8 +11,20 @@ class Skull(pygame.sprite.Sprite):
         self.rect = self.image.get_rect(topleft = pos)
 
 
+        self.animation_max_time = 1.0
+        self.animation_current_time = 0
+        self.current_animation_frame = 0
+
+    def animate(self,dt):
+        if self.animation_current_time >= self.animation_max_time:
+            self.animation_current_time = 0
+            self.current_animation_frame = (self.current_animation_frame + 1)%(len(self.images)-1)
+            self.image = self.images[self.current_animation_frame]
+        self.animation_current_time += dt
+        
+
     def update(self,dt):
-        pass
+        self.animate(dt)
 
     def draw(self,surf,alpha):
         surf.blit(self.image,self.rect)
