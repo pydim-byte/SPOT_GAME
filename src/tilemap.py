@@ -40,6 +40,7 @@ class Tilemap:
                             continue
                         self.skull.sprite.hp -= 1
                         x.found = True
+                        SOUND_LIBRARY['right_guess'].play()
                         self.spawn_particles()
                 for s in self.skull_eyes:
                     if s.skull_eye_number == d.difference_number:
@@ -49,6 +50,7 @@ class Tilemap:
             for h in self.hearts:
                 if h.heart_number == (3 - self.player.sprite.hp):
                     h.damaged = True
+                    SOUND_LIBRARY['wrong_guess'].play()
                     return
 
     def spawn_particles(self):

@@ -8,6 +8,15 @@ from src.physic_manager import PhysicManager
 class Game:
     def __init__(self):
         pygame.init()
+        pygame.mixer.init()
+
+        pygame.mixer.music.load('assets/audio/dublin.ogg')
+        pygame.mixer.music.set_volume(0.8)
+        pygame.mixer_music.play()
+
+        SOUND_LIBRARY['wrong_guess'] = pygame.mixer.Sound('assets/audio/wrong_guess.ogg')
+        SOUND_LIBRARY['right_guess'] = pygame.mixer.Sound('assets/audio/right_guess.ogg')
+
         self.screen = pygame.Surface((SCREEN_WIDTH,SCREEN_HEIGHT))
         self.display = pygame.display.set_mode((DISPLAY_WIDTH,DISPLAY_HEIGHT))
         self.clock = pygame.time.Clock()

@@ -8,3 +8,6 @@ TILE_SIZE = 16
 TILE_SCALE = 1
 
 PLAYER_MOVEMENT_SPEED = 2
+
+SOUND_LIBRARY = {'wrong_guess' : None,
+                 'right_guess' : None,}
