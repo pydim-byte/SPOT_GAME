@@ -15,6 +15,9 @@ class PhysicManager:
         obj.pos.x = obj.rect.x
 
     def check_horizontal_collision(self,obj):
+        if obj.type == 'particle':
+            return
+        
         for collision_obj in self.static_objects:
             if not collision_obj.alive():
                 continue
@@ -32,6 +35,9 @@ class PhysicManager:
         obj.pos.y = obj.rect.y
 
     def check_vertical_collision(self,obj):
+        if obj.type == 'particle':
+            return
+
         for collision_obj in self.static_objects:
             if not collision_obj.alive():
                 continue
@@ -45,6 +51,9 @@ class PhysicManager:
             obj.pos.y = obj.rect.y  
 
     def move_and_collide(self,obj):
+        if not obj.alive():
+            return
+
         obj.calculate_velocity()
         self.move_horizontal(obj)
         self.check_horizontal_collision(obj)

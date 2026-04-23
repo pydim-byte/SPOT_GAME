@@ -3,12 +3,14 @@ from ..globals import *
 
 
 class Player(pygame.sprite.Sprite):
-    def __init__(self,pos,images):
+    def __init__(self,pos,images,guess_ability):
         super().__init__()
         self.type = 'player'
         self.images = images
         self.image = self.images[0]
         self.rect = self.image.get_rect(topleft = pos)
+
+        self.guess_ability = guess_ability
 
         self.hp = 3
 
@@ -20,6 +22,9 @@ class Player(pygame.sprite.Sprite):
 
     def set_direction(self,direction):
         self.movement_direction.xy = direction.xy
+
+    def guess(self):
+        self.guess_ability()
 
     def calculate_velocity(self):
         self.direction.xy = self.movement_direction.xy

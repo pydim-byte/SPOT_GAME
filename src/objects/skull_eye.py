@@ -16,4 +16,6 @@ class Skull_eye(pygame.sprite.Sprite):
         pass
 
     def draw(self,surf,alpha):
+        if self.damaged:
+            return
         surf.blit(self.image,self.rect)

@@ -10,12 +10,15 @@ class Skull(pygame.sprite.Sprite):
         self.image = self.images[0]
         self.rect = self.image.get_rect(topleft = pos)
 
+        self.hp = 2
 
         self.animation_max_time = 1.0
         self.animation_current_time = 0
         self.current_animation_frame = 0
 
     def animate(self,dt):
+        if self.hp <= 0:
+            return
         if self.animation_current_time >= self.animation_max_time:
             self.animation_current_time = 0
             self.current_animation_frame = (self.current_animation_frame + 1)%(len(self.images)-1)

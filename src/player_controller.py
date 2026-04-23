@@ -7,13 +7,15 @@ class PlayerController:
 
     def handle_inputs(self,inputs):
         move_direction = pygame.Vector2(0,0)
-        if inputs[pygame.K_LEFT]:
+        if inputs['left']:
             move_direction.x = -1
-        if inputs[pygame.K_RIGHT]:
+        if inputs['right']:
             move_direction.x = 1
-        if inputs[pygame.K_UP]:
+        if inputs['up']:
             move_direction.y = -1
-        if inputs[pygame.K_DOWN]:
+        if inputs['down']:
             move_direction.y = 1
         self.player.set_direction(move_direction)
         
+        if inputs['space']:
+            self.player.guess()
