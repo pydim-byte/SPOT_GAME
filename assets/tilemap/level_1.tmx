@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="40" height="23" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="24">
- <tileset firstgid="1" source="../../../../(4)Tools/TileEditor/projects/PIX_TILES.tsx"/>
+ <tileset firstgid="1" name="PIX_TILES" tilewidth="16" tileheight="16" tilecount="14400" columns="160">
+  <image source="C:/Users/baker/OneDrive/Desktop/PIX_TILES.png" width="2560" height="1440"/>
+ </tileset>
  <layer id="1" name="Background" width="40" height="23">
   <data encoding="csv">
 160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,
